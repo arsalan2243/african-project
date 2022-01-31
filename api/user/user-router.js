@@ -37,4 +37,3 @@ router.post("/login", checkUserName, async (req, res, next) => {
 })
 
 module.exports = router
-// .use..
