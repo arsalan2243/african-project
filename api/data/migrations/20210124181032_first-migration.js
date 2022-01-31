@@ -7,7 +7,7 @@ exports.up = async (knex) => {
       users.timestamps(false, true)
     })
 }
-
+//test
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('users')
 }
