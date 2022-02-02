@@ -5,8 +5,8 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex("markets").insert([
-        { market_name: "market 1" },
-        { market_name: "market 2" },
+        { market_name: "Kenya" },
+        { market_name: "Rwanda" },
       ])
     })
 }

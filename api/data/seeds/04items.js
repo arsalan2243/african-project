@@ -9,14 +9,14 @@ exports.seed = function (knex) {
           item_name: "banana",
           description: "yellow fruit",
           price: 1,
-          category_id: 1,
+          category: 'fruit',
           market_id: 1,
         },
         {
           item_name: "apple",
           description: "round fruit",
           price: 2,
-          category_id: 2,
+          category: 'fruit',
           market_id: 2,
         },
       ])
