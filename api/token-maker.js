@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const SECRET = process.env.SECRET || "hash"
+const { JWT_SECRET } = require('./secrets')
 
 const tokenMaker = (user) => {
   const payload = {
@@ -9,7 +9,7 @@ const tokenMaker = (user) => {
   const options = {
     expiresIn: "1d",
   }
-  return jwt.sign(payload, SECRET, options)
+  return jwt.sign(payload, JWT_SECRET, options)
 }
 
 module.exports = tokenMaker
