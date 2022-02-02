@@ -10,7 +10,9 @@ async function addItem(item) {
             'item_name',
             'description',
             'category',
-            'price'
+            'price',
+            'market_id',
+            'user_id',
         ])
         return newItem
          

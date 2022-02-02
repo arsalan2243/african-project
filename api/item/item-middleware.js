@@ -1,4 +1,5 @@
 const model = require("./item-model")
+const db = require('../data/db-config')
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../secrets')
 
@@ -19,15 +20,25 @@ const restricted = (req, res, next) => {
 }
 
 const checkItemValid = (req, res, next) => {
-  const { item_name, category, price } = req.body
-  if(!item_name, !category, !price) {
-      next({status: 422, message: 'Name, Category, AND price are required!!'})
+  const { item_name, category, price, user_id, market_id } = req.body
+  if(!item_name, !category, !price, !user_id, !market_id) {
+      next({status: 422, message: 'Name, Category, Price, User_id, and Market_id are required!!'})
   } else if(typeof price !== 'number') {
     next({status:422, message: 'Price must be a number!'})
   } else {
     next()
   }
 }
+
+const checkUserExists = async (req, res, next) => {
+    const exists = await db('users').where('user_id', req.body.user_id).first()
+    if(exists){
+        next()
+    } else {
+        next({status: 401, message: 'You must be a valid user!'})
+    }
+}
+
 
 module.exports = {
     restricted,

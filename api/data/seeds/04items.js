@@ -11,6 +11,7 @@ exports.seed = function (knex) {
           price: 1,
           category: 'fruit',
           market_id: 1,
+          user_id: 1 
         },
         {
           item_name: "apple",
@@ -18,6 +19,7 @@ exports.seed = function (knex) {
           price: 2,
           category: 'fruit',
           market_id: 2,
+          user_id: 2
         },
       ])
     })

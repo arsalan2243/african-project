@@ -35,6 +35,14 @@ exports.up = async (knex) => {
         .inTable("markets")
         .onUpdate("RESTRICT")
         .onDelete("RESTRICT")
+      items
+        .integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references("user_id")
+        .inTable("users")
+        .onUpdate("RESTRICT")
+        .onDelete("RESTRICT")
     
     })
 }
