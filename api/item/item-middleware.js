@@ -21,12 +21,21 @@ const restricted = (req, res, next) => {
 
 const checkItemValid = (req, res, next) => {
   const { item_name, category, price, user_id, market_id } = req.body
-  if(!item_name, !category, !price, !user_id, !market_id) {
-      next({status: 422, message: 'Name, Category, Price, User_id, and Market_id are required!!'})
-  } else if(typeof price !== 'number') {
-    next({status:422, message: 'Price must be a number!'})
-  } else {
-    next()
+  console.log(typeof price)
+    if(!item_name) {
+        next({status: 422, message: 'Item name is required!'})
+    } else if(!category) {
+        next({status: 422, message: 'Category is required!'})
+    } else if(!price) {
+        next({status: 422, message: 'Price is required!'})
+    } else if(!user_id) {
+        next({status: 422, message: 'User ID is required!'})
+    } else if(!market_id) {
+        next({status: 422, message: 'Market ID is required!'})
+    } else if(typeof price !== 'number') {
+        next({status:422, message: 'Price must be a number!'})
+    } else {
+        next()
   }
 }
 
